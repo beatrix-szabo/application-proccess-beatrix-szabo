@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Add new applicant
+{% endblock %}
+{% block content %}
+<nav id="add-applicant">
+    <form action="/add-applicant"method="POST" style="text-align: center;">
+        <input class="inner_text" type="text" value="First Name" id="first_name" name="first_name"><input class="inner_text" type="text" value="Last Name" id = "last_name" name="last_name"><br>
+        <input class="inner_text" type="text" value="Phone Number" id = "phone_number" name="phone_number"><br>
+        <input class="inner_text" type="email" value="Email" id="email" name="email"><br>
+        <input class="inner_text" type="text" value="Application number" id="app_num" name="app_num"><br>
+        <input class="button" type="submit" value="Submit">
+    </form>
+</nav>
+{% include 'footer.html' %}
+{% endblock %}

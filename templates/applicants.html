@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Applicant Phone
+{% endblock %}
+
+{% block content %}
+    <div>
+        <table class="table">
+            <tr>
+                <th>Applicant ID</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+            </tr>   
+            {%for names in applicants%}
+            <tr>
+                
+                <td><a href="/applicants/{{names.application_code}}">{{names.application_code}}</a></td>
+                <td><a href="/applicants/{{names.application_code}}">{{names.first_name + " " + names.last_name }} </td></a>
+                <td><a href="/applicants/{{names.application_code}}">{{names.phone_number}}<td></a>
+                <td><a href="/applicants/{{names.application_code}}">{{names.email}}</td></a>
+            </tr>
+                {%endfor%}
+        </table>
+        <form class="oneline" action="applicants/delete_by_email" method="POST">
+            <input class='inner_text' type="text" value="Delete by email" id='delete_by_email', name='delete_by_email'>
+            <input class="inner_text" type="submit" value="Delete"> 
+        </form>
+        <a href="/add-applicant">Add new applicant</a>
+    </div>
+{% include 'footer.html' %}
+{% endblock %}

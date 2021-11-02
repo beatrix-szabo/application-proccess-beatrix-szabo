@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Applicant Phone
+{% endblock %}
+
+{% block content %}
+    <div class="applicant_prof">
+        {% for element in applicant%}
+            <h1>{{element.first_name + ' ' + element.last_name}}</h1>
+            <p>{{element.application_code}}</p>
+            <p>Phone number: {{element.phone_number}}</p>
+                <form method='POST'>
+                    <input class="inner_text" type="text" value="{{element.phone_number}}" id="phone" name="phone">
+                    <input class="button" type="submit" value="Edith Phone Number">
+                </form>
+            <h4>{{element.email}}</h4>
+    </div>
+    <div class="oneline" style="width: 450px;">
+        <form action="/applicants/{{element.application_code}}/delete">
+            <input class="button" type="submit" value = "Delete">
+        </form>
+    </div>
+    {%endfor%}
+{% include 'footer.html' %}
+{% endblock %}
